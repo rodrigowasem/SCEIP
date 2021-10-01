@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Emprestimo>
+
+@foreach (var emprestimo in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                @emprestimo.ItemId
+            </div>
+            <div class="col-sm">
+                @emprestimo.UsuarioId
+            </div>
+            <div class="col-sm">
+                @emprestimo.UsuarioId
+            </div>
+            <div class="col-sm">
+                @emprestimo.Data_Emprestimo
+            </div>
+            <div class="col-sm">
+                @emprestimo.Data_Devolucao
+            </div>           
+
+            <div>
+                <a asp-action="DevolverItem" asp-controller="Emprestimo" asp-route-Id="@emprestimo.Id">Devolver Item</a>
+            </div>
+        </div>
+    </div>
+}

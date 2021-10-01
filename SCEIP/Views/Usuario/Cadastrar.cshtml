@@ -1,0 +1,68 @@
+﻿@model Usuario
+
+<form method="post">
+
+    <div>
+        <label asp-for="Nome">Digite seu nome</label>
+        <input asp-for="Nome" />
+        <span asp-validation-for="Nome"></span>
+    </div>
+
+    <div>
+        <label asp-for="Sobrenome">Digite seu sobrenome</label>
+        <input asp-for="Sobrenome" />
+        <span asp-validation-for="Sobrenome"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email">Digite seu e-mail</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div>
+        <label asp-for="DataNasc">Digite a sua data de nascimento</label>
+        <input asp-for="DataNasc" />
+        <span asp-validation-for="DataNasc"></span>
+    </div>
+
+    <div>
+        <label asp-for="Telefone">Digite seu telefone</label>
+        <input asp-for="Telefone" />
+        <span asp-validation-for="Telefone"></span>
+    </div>
+
+    @*<div>
+        <label asp-for="Endereco">Digite seu endereco</label>
+        <input asp-for="Endereco" />
+        <span asp-validation-for="Endereco"></span>
+    </div>
+
+    <div>
+        <label asp-for="Numero">Digite seu número</label>
+        <input asp-for="Numero" />
+        <span asp-validation-for="Numero"></span>
+    </div>
+
+    <div>
+        <label asp-for="Bairro">Digite seu bairro</label>
+        <input asp-for="Bairro" />
+        <span asp-validation-for="Bairro"></span>
+    </div>
+
+    <div>
+        <label asp-for="CidadeId">Digite seu bairro</label>
+        <input asp-for="CidadeId" />
+        <span asp-validation-for="CidadeId"></span>
+    </div>
+
+    <div>
+        <label asp-for="EstadoId">Estado</label>
+        <input asp-for="EstadoId" />
+        <span asp-validation-for="EstadoId"></span>
+    </div>*@
+
+    <button type="submit">Cadastrar</button>
+
+
+</form>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Item>
+
+@foreach (var item in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                @item.Nome
+            </div>
+            <div class="col-sm">
+                @item.Usuario.Nome
+            </div>
+            <div class="col-sm">
+                @item.Usuario.Email
+            </div>
+            <div class="col-sm">
+                @item.Usuario.Telefone
+            </div>
+
+            <div>
+                <a asp-action="FazerEmprestimo" asp-controller="Item" asp-route-Id="@item.Id">Fazer Emprestimo</a>
+            </div>
+        </div>
+    </div>
+}
