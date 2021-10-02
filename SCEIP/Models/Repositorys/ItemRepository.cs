@@ -1,4 +1,5 @@
-﻿using SCEIP.Models.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SCEIP.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace SCEIP.Models.Repositorys
 
         public IEnumerable<Item> GetItensDispEmprestimo()
         {
-            return _context.Itens.Where(x => x.Disp_Emprestimo == true);
+            return _context.Itens.Include(x => x.Categoria).Where(x => x.Disp_Emprestimo == true);
         }
     }
 }

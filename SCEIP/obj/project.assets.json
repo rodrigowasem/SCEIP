@@ -6375,26 +6375,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rodrigo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\RWasem\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rodrigo\\Desktop\\Rodrigo\\ASPNETMVC\\SCEIP\\SCEIP\\SCEIP.csproj",
+      "projectUniqueName": "C:\\Users\\RWasem\\Desktop\\SCEIP\\SCEIP\\SCEIP.csproj",
       "projectName": "SCEIP",
-      "projectPath": "C:\\Users\\Rodrigo\\Desktop\\Rodrigo\\ASPNETMVC\\SCEIP\\SCEIP\\SCEIP.csproj",
-      "packagesPath": "C:\\Users\\Rodrigo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rodrigo\\Desktop\\Rodrigo\\ASPNETMVC\\SCEIP\\SCEIP\\obj\\",
+      "projectPath": "C:\\Users\\RWasem\\Desktop\\SCEIP\\SCEIP\\SCEIP.csproj",
+      "packagesPath": "C:\\Users\\RWasem\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\RWasem\\Desktop\\SCEIP\\SCEIP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rodrigo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\RWasem\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

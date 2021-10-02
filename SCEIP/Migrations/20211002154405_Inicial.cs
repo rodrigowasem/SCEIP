@@ -43,7 +43,6 @@ namespace SCEIP.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UsuarioId = table.Column<int>(type: "int", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: false),
                     Disp_Emprestimo = table.Column<bool>(type: "bit", nullable: false)
@@ -57,12 +56,6 @@ namespace SCEIP.Migrations
                         principalTable: "Categorias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Itens_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,8 +66,8 @@ namespace SCEIP.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
                     ItemId = table.Column<int>(type: "int", nullable: false),
-                    Data_Emprestimo = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Data_Devolucao = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Data_Emprestimo = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Data_Devolucao = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -83,12 +76,14 @@ namespace SCEIP.Migrations
                         name: "FK_Emprestimos_Itens_ItemId",
                         column: x => x.ItemId,
                         principalTable: "Itens",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Emprestimos_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuarios",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -105,11 +100,6 @@ namespace SCEIP.Migrations
                 name: "IX_Itens_CategoriaId",
                 table: "Itens",
                 column: "CategoriaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Itens_UsuarioId",
-                table: "Itens",
-                column: "UsuarioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -121,10 +111,10 @@ namespace SCEIP.Migrations
                 name: "Itens");
 
             migrationBuilder.DropTable(
-                name: "Categorias");
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "Categorias");
         }
     }
 }

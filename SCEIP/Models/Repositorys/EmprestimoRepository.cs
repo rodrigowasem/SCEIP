@@ -1,4 +1,5 @@
-﻿using SCEIP.Models.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SCEIP.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,12 @@ namespace SCEIP.Models.Repositorys
 
         // busca todos os empréstimos existentes na tabela do banco
         public IEnumerable<Emprestimo> Emprestimos { get => _context.Emprestimos; }
+
+        public IEnumerable<Emprestimo> GetAll()
+        {
+            //return _context.Emprestimos.Include(x => x.Item).Include(x => x.Usuario).Where(x => x.Data_Devolucao != null);
+            return _context.Emprestimos.Include(x => x.Item).Include(x => x.Usuario).Where(x => x.Data_Devolucao == null);
+        }
 
         // 
         public void AdicionaEmprestimo(Emprestimo emprestimo)

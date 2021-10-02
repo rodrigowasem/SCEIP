@@ -1,20 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model IEnumerable<Emprestimo>
+@model EmprestimoViewModel
 
-@foreach (var emprestimo in Model)
+@foreach (var emprestimo in Model.Emprestimos)
 {
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                @emprestimo.ItemId
+                @emprestimo.Item.Nome
             </div>
             <div class="col-sm">
-                @emprestimo.UsuarioId
-            </div>
-            <div class="col-sm">
-                @emprestimo.UsuarioId
+                @emprestimo.Usuario.Nome
             </div>
             <div class="col-sm">
                 @emprestimo.Data_Emprestimo

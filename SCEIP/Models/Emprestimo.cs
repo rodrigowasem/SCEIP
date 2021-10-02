@@ -8,9 +8,11 @@ namespace SCEIP.Models
     public class Emprestimo
     {
         public int Id { get; set; }
+        public Usuario Usuario { get; set; }
         public int UsuarioId { get; set; }
+        public Item Item { get; set; }
         public int ItemId { get; set; }
-        public DateTime Data_Emprestimo { get; set; }
-        public DateTime Data_Devolucao { get; set; }
+        public DateTime? Data_Emprestimo { get; set; }
+        public DateTime? Data_Devolucao { get; set; }
     }
 }

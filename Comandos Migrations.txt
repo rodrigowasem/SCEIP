@@ -1,0 +1,18 @@
+Dentro de AppDbContext, adicionar os DbSet necessários.
+
+- Em seguida executar no Manenger Console (sempre que alguma entidade for adicionada ou modificada):
+
+	Add-Migration Nome da Migration
+	ou
+	Add-Migration que aplica todas as migrations existentes
+
+- Em seguida, executamos o comando para fazer as alterações no banco:
+
+	Update-Database
+
+- Também temos a opção de desfazer alterações no banco com base em uma migration específica:
+	Update-Database -Migration Nome da Migration que desejo voltar as alterações
+	ou
+	Update-Database -Migration 0 que volta as alterações para antes das migration
+
+

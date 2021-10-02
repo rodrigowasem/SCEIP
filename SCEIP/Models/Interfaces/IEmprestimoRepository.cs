@@ -10,6 +10,7 @@ namespace SCEIP.Models.Interfaces
         IEnumerable<Emprestimo> Emprestimos { get; }
         void AdicionaEmprestimo(Emprestimo emprestimo);
         void Update(Emprestimo emprestimo);
+        IEnumerable<Emprestimo> GetAll();
     }
 
 }

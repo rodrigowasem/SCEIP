@@ -13,8 +13,8 @@ namespace SCEIP.Models
             //builder.Entity<Emprestimo>().HasOne<Usuario>().WithMany().HasForeignKey("UsuarioId").OnDelete(DeleteBehavior.NoAction);
             //builder.Entity<Emprestimo>().HasOne<Item>().WithMany().HasForeignKey("ItemId").OnDelete(DeleteBehavior.NoAction);
 
-            builder.Entity<Emprestimo>().HasOne<Usuario>().WithMany().OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<Emprestimo>().HasOne<Item>().WithMany().OnDelete(DeleteBehavior.NoAction);
+            //builder.Entity<Emprestimo>().HasOne<Usuario>().WithMany().OnDelete(DeleteBehavior.NoAction);
+            //builder.Entity<Emprestimo>().HasOne<Item>().WithMany().OnDelete(DeleteBehavior.NoAction);
         }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) 
         { 

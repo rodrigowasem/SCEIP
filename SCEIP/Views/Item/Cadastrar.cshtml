@@ -1,27 +1,22 @@
-﻿@model Item
+﻿@model CadastrarViewModel
 
-<form asp-controller="Item" asp-action="Save">
+<form method="post" asp-controller="Item" asp-action="Cadastrar">
 
     <div>
-        <label asp-for="Nome">Digite seu nome</label>
-        <input asp-for="Nome" />
-        <span asp-validation-for="Nome"></span>
+        <label asp-for="Item.Nome">Digite seu nome</label>
+        <input asp-for="Item.Nome" />
+        <span asp-validation-for="Item.Nome"></span>
     </div>
 
+    <select asp-for="Item.CategoriaId" asp-items="ViewBag.ListaCategorias"></select>
+
     <div>
-        <label asp-for="Disp_Emprestimo">Disponível para emprestimo</label>
-        <input type="checkbox" asp-for="Disp_Emprestimo">
-        <span asp-validation-for="Disp_Emprestimo"></span>
+        <label asp-for="Item.Disp_Emprestimo">Disponível para emprestimo</label>
+        <input type="checkbox" asp-for="Item.Disp_Emprestimo">
+        <span asp-validation-for="Item.Disp_Emprestimo"></span>
     </div>
 
     <button type="submit">Cadastrar</button>
-
-    public int UsuarioId { get; set; }
-    public string Nome_Locador { get; set; }
-    public string Email_Locador { get; set; }
-    [Required(ErrorMessage = "O nome do Item deve ser preenchido!")]
-    public string Nome { get; set; }
-    public bool Disp_Emprestimo { get; set; }
 
 
 </form>

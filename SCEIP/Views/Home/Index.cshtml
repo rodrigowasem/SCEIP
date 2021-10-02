@@ -8,17 +8,11 @@
                 @item.Nome
             </div>
             <div class="col-sm">
-                @item.Usuario.Nome
-            </div>
-            <div class="col-sm">
-                @item.Usuario.Email
-            </div>
-            <div class="col-sm">
-                @item.Usuario.Telefone
+                @item.Categoria.Nome
             </div>
 
             <div>
-                <a asp-action="FazerEmprestimo" asp-controller="Item" asp-route-Id="@item.Id">Fazer Emprestimo</a>
+                <a asp-controller="Item" asp-action="FazerEmprestimo" asp-route-Id="@item.Id">Fazer Emprestimo</a>
             </div>
         </div>
     </div>

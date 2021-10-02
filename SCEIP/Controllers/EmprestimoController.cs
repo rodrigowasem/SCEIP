@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SCEIP.ViewModels;
 
 namespace SCEIP.Controllers
 {
@@ -21,8 +22,12 @@ namespace SCEIP.Controllers
         }
         public IActionResult Index()
         {
-            //captura a lista de emprestimos
-            return View();
+            var viewModel = new EmprestimoViewModel()
+            {
+                Emprestimos = _repository.GetAll()
+            };
+
+            return View(viewModel);
         }
 
         public IActionResult DevolverItem(int id)

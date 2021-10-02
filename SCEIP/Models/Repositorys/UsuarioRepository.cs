@@ -15,6 +15,11 @@ namespace SCEIP.Models.Repositorys
             _context = context;
         }
 
+        public IQueryable<Usuario> GetAll()
+        {
+            return _context.Usuarios;
+        }
+
         public Usuario GetUsuarioById(int id)
         {
             return _context.Usuarios.FirstOrDefault(x => x.Id == id);

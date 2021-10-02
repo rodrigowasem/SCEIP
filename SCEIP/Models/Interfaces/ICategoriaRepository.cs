@@ -8,5 +8,6 @@ namespace SCEIP.Models.Interfaces
     public interface ICategoriaRepository
     {
         Categoria GetCategoriaById(int id);
+        IQueryable<Categoria> GetAll();
     }
 }

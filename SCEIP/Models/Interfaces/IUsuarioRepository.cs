@@ -8,5 +8,6 @@ namespace SCEIP.Models.Interfaces
     public interface IUsuarioRepository
     {
         Usuario GetUsuarioById(int id);
+        IQueryable<Usuario> GetAll();
     }
 }

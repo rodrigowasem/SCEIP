@@ -15,6 +15,11 @@ namespace SCEIP.Models.Repositorys
             _context = context;
         }
 
+        public IQueryable<Categoria> GetAll()
+        {
+            return _context.Categorias;
+        }
+
         public Categoria GetCategoriaById(int id)
         {
             return _context.Categorias.FirstOrDefault(x => x.Id == id);

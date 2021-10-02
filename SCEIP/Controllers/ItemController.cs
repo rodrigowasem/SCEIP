@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SCEIP.Controllers
 {
@@ -15,8 +16,8 @@ namespace SCEIP.Controllers
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IEmprestimoRepository _emprestimoRepository;
 
-        public ItemController(IItemRepository repository, 
-            ICategoriaRepository categoriaRepository, 
+        public ItemController(IItemRepository repository,
+            ICategoriaRepository categoriaRepository,
             IUsuarioRepository usuarioRepository,
             IEmprestimoRepository emprestimoRepository)
         {
@@ -26,17 +27,65 @@ namespace SCEIP.Controllers
             _emprestimoRepository = emprestimoRepository;
         }
 
+        public IActionResult Cadastrar()
+        {
+
+            var listaCategorias = _categoriaRepository.GetAll().ToList().Select(x =>
+            {
+                return new SelectListItem()
+                {
+                    Text = x.Nome,
+                    Value = x.Id.ToString()
+                };
+            });
+
+            var listaUsuarios = _usuarioRepository.GetAll().ToList().Select(x =>
+            {
+                return new SelectListItem()
+                {
+                    Text = x.Nome,
+                    Value = x.Id.ToString()
+                };
+            });
+
+            ViewBag.ListaCategorias = listaCategorias;
+            ViewBag.ListaUsuarios = listaUsuarios;
+
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Cadastrar(Item item)
         {
-            
+
             if (ModelState.IsValid)
             {
                 item.Categoria = _categoriaRepository.GetCategoriaById(item.CategoriaId);
-                item.Usuario = _usuarioRepository.GetUsuarioById(item.UsuarioId);
+                //item.Usuario = _usuarioRepository.GetUsuarioById(item.UsuarioId);
                 _repository.Add(item);
-                return RedirectToAction("Home", "Index");
+                return RedirectToAction("Index", "Home");
             }
+
+            var listaCategorias = _categoriaRepository.GetAll().ToList().Select(x =>
+            {
+                return new SelectListItem()
+                {
+                    Text = x.Nome,
+                    Value = x.Id.ToString()
+                };
+            });
+
+            var listaUsuarios = _usuarioRepository.GetAll().ToList().Select(x =>
+            {
+                return new SelectListItem()
+                {
+                    Text = x.Nome,
+                    Value = x.Id.ToString()
+                };
+            });
+
+            ViewBag.ListaCategorias = listaCategorias;
+            ViewBag.ListaUsuarios = listaUsuarios;
 
             return View(item);
         }
@@ -48,14 +97,16 @@ namespace SCEIP.Controllers
 
             Emprestimo novoEmprestimo = new Emprestimo()
             {
-                
+                UsuarioId = 1,
+                Item = item,
+                ItemId = item.Id,
+                Data_Emprestimo = DateTime.Now
             };
 
+            _emprestimoRepository.AdicionaEmprestimo(novoEmprestimo);
+            _repository.Update(item);
 
-            //_emprestimoRepository.AdicionaEmprestimo(emprestimo);
-            //_itemRepository.Update(emprestimo.Item);
-
-            return View("Index");           
+            return RedirectToAction("Index", "Emprestimo");
         }
     }
 }

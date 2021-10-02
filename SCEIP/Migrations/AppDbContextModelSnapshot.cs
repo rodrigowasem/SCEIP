@@ -41,10 +41,10 @@ namespace SCEIP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Data_Devolucao")
+                    b.Property<DateTime?>("Data_Devolucao")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Data_Emprestimo")
+                    b.Property<DateTime?>("Data_Emprestimo")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ItemId")
@@ -79,14 +79,9 @@ namespace SCEIP.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Itens");
                 });
@@ -120,17 +115,21 @@ namespace SCEIP.Migrations
 
             modelBuilder.Entity("SCEIP.Models.Emprestimo", b =>
                 {
-                    b.HasOne("SCEIP.Models.Item", null)
+                    b.HasOne("SCEIP.Models.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SCEIP.Models.Usuario", null)
+                    b.HasOne("SCEIP.Models.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Item");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("SCEIP.Models.Item", b =>
@@ -141,15 +140,7 @@ namespace SCEIP.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SCEIP.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Categoria");
-
-                    b.Navigation("Usuario");
                 });
 #pragma warning restore 612, 618
         }
