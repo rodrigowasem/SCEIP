@@ -14,11 +14,8 @@
                 @emprestimo.Usuario.Nome
             </div>
             <div class="col-sm">
-                @emprestimo.Data_Emprestimo
-            </div>
-            <div class="col-sm">
-                @emprestimo.Data_Devolucao
-            </div>           
+                @emprestimo.Data_Emprestimo.Value.ToString("dd/MM/yyyy")
+            </div>        
 
             <div>
                 <a asp-action="DevolverItem" asp-controller="Emprestimo" asp-route-Id="@emprestimo.Id">Devolver Item</a>

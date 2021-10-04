@@ -9,7 +9,5 @@ namespace SCEIP.ViewModels
     public class CadastrarViewModel
     {
         public Item Item { get; set; }
-        public IEnumerable<Categoria> Categorias { get; set; }
-        public IEnumerable<Usuario> Usuarios { get; set; }
     }
 }

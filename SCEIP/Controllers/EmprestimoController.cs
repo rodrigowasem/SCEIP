@@ -33,17 +33,16 @@ namespace SCEIP.Controllers
         public IActionResult DevolverItem(int id)
         {
             var emprestimo = _repository.Emprestimos.FirstOrDefault(x => x.Id == id);
-            emprestimo.Data_Devolucao = new DateTime();
-            
+            emprestimo.Data_Devolucao = DateTime.Now;
+
             var item = _itemRepository.Itens.FirstOrDefault(x => x.Id == emprestimo.ItemId);
             item.Disp_Emprestimo = true;
 
-            if (item != null)
-                _itemRepository.Update(item);
+            _itemRepository.Update(item);
 
             _repository.Update(emprestimo);
 
-            return View("Index");
+            return RedirectToAction("Index", "Emprestimo");
         }
     }
 }

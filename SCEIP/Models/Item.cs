@@ -10,6 +10,7 @@ namespace SCEIP.Models
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "O nome do Item deve ser preenchido!")]
+        [StringLength(30)]
         public string Nome { get; set; }
         public Categoria Categoria { get; set; }
         public int CategoriaId { get; set; }
